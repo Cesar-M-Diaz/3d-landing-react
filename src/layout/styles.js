@@ -32,8 +32,13 @@ export const Container = styled.div`
 
 export const TopLeft = styled.div`
   position: absolute;
-  top: 5vw;
-  left: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+  left: 50vw;
 `;
 
 // export const BottomLeft = styled.div`
@@ -75,7 +80,7 @@ export const Slider = styled.div`
   display: flex;
   flex-direction: column;
   height: 150px;
-  width: 90vw;
+  width: 40vw;
   bottom: 10%;
   right: 5vw;
   font-family: 'Inter';

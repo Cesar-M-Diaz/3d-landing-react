@@ -9,8 +9,8 @@ import { useState } from 'react';
 
 function App() {
   const [speed, setSpeed] = useState(1);
-  const [target, setTarget] = useState(20);
-  const [count, setCount] = useState(10);
+  const [target, setTarget] = useState(40);
+  const [count, setCount] = useState(40);
   return (
     <>
       <Suspense fallback={null}>
@@ -19,7 +19,7 @@ function App() {
       </Suspense>
       <Overlay />
       <Slider>
-        <label htmlFor="speed">speed</label>
+        {/* <label htmlFor="speed">speed</label>
         <input
           name="speed"
           type="range"
@@ -48,7 +48,7 @@ function App() {
           value={count}
           step="1"
           onChange={(e) => setCount(e.target.value)}
-        />
+        /> */}
       </Slider>
     </>
   );

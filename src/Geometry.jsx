@@ -6,7 +6,7 @@ import { EffectComposer, DepthOfField } from '@react-three/postprocessing';
 
 function Dodecaedro({ z, speed }) {
   const ref = useRef();
-  const { nodes, materials } = useGLTF('/dodecaedro1-transformed.glb');
+  const { nodes, materials } = useGLTF('/card-transformed.glb');
   const { viewport, camera } = useThree();
   const { width, height } = viewport.getCurrentViewport(camera, [0, 0, z]);
 
@@ -29,10 +29,10 @@ function Dodecaedro({ z, speed }) {
   return (
     <mesh
       ref={ref}
-      geometry={nodes.Mesh_0.geometry}
-      material={materials['Scene_-_Root']}
+      geometry={nodes.Plane.geometry}
+      material={materials['Material.001']}
       scale={1.5}
-      material-emissive="orange"
+      material-emissive="red"
       material-color="yellow"
     />
   );
