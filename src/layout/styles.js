@@ -80,7 +80,7 @@ export const Slider = styled.div`
   display: flex;
   flex-direction: column;
   height: 150px;
-  width: 40vw;
+  width: 90vw;
   bottom: 10%;
   right: 5vw;
   font-family: 'Inter';

@@ -5,9 +5,7 @@ export default function Overlay() {
     <Container>
       <TopLeft>
         <div className="landing">
-          <h1>Tech-Prep</h1>
-          <p>A collaborative interview prep platform</p>
-          <button>Start</button>
+          <h1>3d Test</h1>
         </div>
       </TopLeft>
     </Container>

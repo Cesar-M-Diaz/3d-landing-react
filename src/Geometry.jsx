@@ -6,7 +6,7 @@ import { EffectComposer, DepthOfField } from '@react-three/postprocessing';
 
 function Dodecaedro({ z, speed }) {
   const ref = useRef();
-  const { nodes, materials } = useGLTF('/card-transformed.glb');
+  const { nodes, materials } = useGLTF('/dodecaedro1-transformed.glb');
   const { viewport, camera } = useThree();
   const { width, height } = viewport.getCurrentViewport(camera, [0, 0, z]);
 
@@ -19,7 +19,11 @@ function Dodecaedro({ z, speed }) {
   });
 
   useFrame(() => {
-    ref.current.rotation.set((data.rX += 0.005), (data.rY += 0.005), (data.rZ += 0.005));
+    ref.current.rotation.set(
+      (data.rX += 0.005),
+      (data.rY += 0.005),
+      (data.rZ += 0.005),
+    );
     ref.current.position.set(data.x * width, (data.y += 0.01 * speed), z);
     if (data.y > height / 1.3) {
       data.y = -height / 1.3;
@@ -29,8 +33,8 @@ function Dodecaedro({ z, speed }) {
   return (
     <mesh
       ref={ref}
-      geometry={nodes.Plane.geometry}
-      material={materials['Material.001']}
+      geometry={nodes.Mesh_0.geometry}
+      material={materials['Scene_-_Root']}
       scale={1.5}
       material-emissive="red"
       material-color="yellow"
@@ -40,14 +44,22 @@ function Dodecaedro({ z, speed }) {
 
 export default function Geometry({ speed = 1, count = 100, target = 10 }) {
   return (
-    <Canvas gl={{ alpha: false }} camera={{ position: [0, 0, 10], fov: 40, near: 0.01, far: 115 }}>
-      <color attach="background" args={['white']} />
+    <Canvas
+      gl={{ alpha: false }}
+      camera={{ position: [0, 0, 10], fov: 40, near: 0.01, far: 115 }}
+    >
+      <color attach="background" args={['gradient']} />
       <Environment preset="sunset" />
       {Array.from({ length: count }, (_, i) => (
         <Dodecaedro key={i} z={-i} speed={speed} />
       ))}
       <EffectComposer>
-        <DepthOfField target={[0, 0, target]} bokehScale={2} width={700} height={700} />
+        <DepthOfField
+          target={[0, 0, target]}
+          bokehScale={2}
+          width={700}
+          height={700}
+        />
       </EffectComposer>
     </Canvas>
   );

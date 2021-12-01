@@ -19,7 +19,7 @@ function App() {
       </Suspense>
       <Overlay />
       <Slider>
-        {/* <label htmlFor="speed">speed</label>
+        <label htmlFor="speed">speed</label>
         <input
           name="speed"
           type="range"
@@ -48,7 +48,7 @@ function App() {
           value={count}
           step="1"
           onChange={(e) => setCount(e.target.value)}
-        /> */}
+        />
       </Slider>
     </>
   );
